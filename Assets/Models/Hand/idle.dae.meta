@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 237b7dcce2e689348885d66a9b5102d3
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: carpel
+    100002: Cube_002
+    100004: finger1_1
+    100006: finger1_2
+    100008: finger1_3
+    100010: finger2_1
+    100012: finger2_2
+    100014: finger2_3
+    100016: finger3_1
+    100018: finger3_2
+    100020: finger3_3
+    100022: finger4_1
+    100024: finger4_2
+    100026: finger4_3
+    100028: foreArm
+    100030: humerus
+    100032: //RootNode
+    100034: metacarpal2
+    100036: metaCarpel1
+    100038: metacarpel3
+    100040: metacarpel4
+    100042: thumb1
+    100044: thumb2
+    100046: thumb3
+    400000: carpel
+    400002: Cube_002
+    400004: finger1_1
+    400006: finger1_2
+    400008: finger1_3
+    400010: finger2_1
+    400012: finger2_2
+    400014: finger2_3
+    400016: finger3_1
+    400018: finger3_2
+    400020: finger3_3
+    400022: finger4_1
+    400024: finger4_2
+    400026: finger4_3
+    400028: foreArm
+    400030: humerus
+    400032: //RootNode
+    400034: metacarpal2
+    400036: metaCarpel1
+    400038: metacarpel3
+    400040: metacarpel4
+    400042: thumb1
+    400044: thumb2
+    400046: thumb3
+    4300000: Cube_002
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Cube_002
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube_002
+        weight: 1
+      - path: humerus
+        weight: 1
+      - path: humerus/foreArm
+        weight: 1
+      - path: humerus/foreArm/carpel
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpal2
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpal2/finger2_1
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpal2/finger2_1/finger2_2
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpal2/finger2_1/finger2_2/finger2_3
+        weight: 1
+      - path: humerus/foreArm/carpel/metaCarpel1
+        weight: 1
+      - path: humerus/foreArm/carpel/metaCarpel1/finger1_1
+        weight: 1
+      - path: humerus/foreArm/carpel/metaCarpel1/finger1_1/finger1_2
+        weight: 1
+      - path: humerus/foreArm/carpel/metaCarpel1/finger1_1/finger1_2/finger1_3
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel3
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel3/finger3_1
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel3/finger3_1/finger3_2
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel3/finger3_1/finger3_2/finger3_3
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel4
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel4/finger4_1
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel4/finger4_1/finger4_2
+        weight: 1
+      - path: humerus/foreArm/carpel/metacarpel4/finger4_1/finger4_2/finger4_3
+        weight: 1
+      - path: humerus/foreArm/carpel/thumb1
+        weight: 1
+      - path: humerus/foreArm/carpel/thumb1/thumb2
+        weight: 1
+      - path: humerus/foreArm/carpel/thumb1/thumb2/thumb3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: Cube_002
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
