@@ -12,6 +12,20 @@ public class TimerDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		label.text = Mathf.RoundToInt (GameManager.instance.timer).ToString ();
+		System.TimeSpan timer = System.TimeSpan.FromSeconds((double)GameManager.instance.timer);
+
+		if (timer.Hours > 0)
+		{
+			label.text = timer.Hours.ToString() + ":" + timer.Minutes.ToString("0#") + ":" + timer.Seconds.ToString("0#");
+		}
+		else
+		{
+			label.text = timer.Minutes.ToString("0#") + ":" + timer.Seconds.ToString("0#");
+		}
+
+		if (timer.Minutes < 2)
+		{
+			label.color = Color.red;
+		}
 	}
 }
