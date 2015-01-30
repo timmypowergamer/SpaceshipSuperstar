@@ -39,6 +39,7 @@ public class PlayerUse : MonoBehaviour {
 						go.player = Player;
 						Player.AnimController.SetBool("PlayGrab",true);
 						Physics.IgnoreCollision(Player.collider, hit.collider, true);
+						hit.transform.gameObject.layer = Player.GrabSocket.layer;
 					}
 					else
 					{
@@ -60,6 +61,7 @@ public class PlayerUse : MonoBehaviour {
 				//Player.GrabbedObject.rigidbody.useGravity = true;
 				Player.GrabbedObject.transform.parent = null;//
 				Player.GrabbedObject.rigidbody.AddForce(Player.Cam.transform.forward * ThrowForce);
+				Player.GrabbedObject.layer = Player.GrabbedObject.GetComponent<GrabableObject>().originalLayer;
 				Physics.IgnoreCollision(Player.collider, Player.GrabbedObject.rigidbody.collider, false);
 				Player.GrabbedObject = null;
 				Player.AnimController.SetBool("PlayGrab",false);
@@ -72,12 +74,27 @@ public class PlayerUse : MonoBehaviour {
 	public void SlapComplete()
 	{
 		RaycastHit hit = new RaycastHit();
-		if (Physics.Raycast (Player.Cam.transform.position, Player.Cam.transform.forward, out hit, 10f)) 
+		if (Physics.Raycast (Player.Cam.transform.position, Player.Cam.transform.forward, out hit, 2f, ~(1 << LayerMask.NameToLayer("Player")))) 
 		{
-			if (hit.transform.GetComponent<InteractableObject> () != null)
+			InteractableObject io = hit.transform.GetComponent<InteractableObject> ();
+			if (io != null)
 			{
-				hit.transform.GetComponent<InteractableObject> ().OnUsed (Player);
+				io.OnUsed (Player);
 			}
+		}
+	}
+
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.yellow;
+		RaycastHit hit = new RaycastHit();
+		if (Physics.Raycast (Player.Cam.transform.position, Player.Cam.transform.forward, out hit, 2f, ~(1 << LayerMask.NameToLayer("Player")))) 
+		{
+			Gizmos.DrawSphere(hit.point, 0.1f);
+		}
+		else
+		{
+			Gizmos.DrawSphere(Player.Cam.transform.position  + Player.Cam.transform.forward * 2f, 0.1f);
 		}
 	}
 }

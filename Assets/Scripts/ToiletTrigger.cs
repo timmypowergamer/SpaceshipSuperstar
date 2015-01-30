@@ -33,7 +33,6 @@ public class ToiletTrigger : ObjectTrigger {
 		triggeredBy.gameObject.SetActive (true);
 		triggeredBy.rigidbody.isKinematic = false;
 		FlushTrigger.SetActive (true);
-		FlushTrigger.GetComponent<InteractableObject> ().keyName = triggeredBy.keyName;
 		Plunger.SetActive (false);
 	}
 

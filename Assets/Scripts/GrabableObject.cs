@@ -7,9 +7,11 @@ public class GrabableObject : MonoBehaviour {
 	public PlayerPawn player;
 	public string keyName;
 
+	public int originalLayer;
+
 	// Use this for initialization
 	void Start () {
-	
+		originalLayer = gameObject.layer;
 	}
 	
 	// Update is called once per frame

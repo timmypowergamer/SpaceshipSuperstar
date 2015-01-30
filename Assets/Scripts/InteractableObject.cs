@@ -3,32 +3,42 @@ using System.Collections;
 
 public class InteractableObject : MonoBehaviour {
 
-	public AudioClip OnUseSound;
-	public string OnUseMessage = "Space Computer Activated!";
-	public string keyName;
 
-	// Use this for initialization
-	void Start () {
-	
+	[System.Serializable]
+	public class SwitchData
+	{
+		public AudioClip OnUseSound;
+		public string OnUseMessage = "Space Computer Activated!";
+		public string keyName;
+		public string clipName;
+		public int onUseCount = 0;
 	}
+
+	public SwitchData DefaultSwitch = new SwitchData();
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	protected int useCount = 0;
 
 	public virtual void OnUsed(PlayerPawn player)
 	{
-		player.RecieveNotification (OnUseMessage);
-		NGUITools.PlaySound (OnUseSound);
-		if (!string.IsNullOrEmpty (keyName))
-		{
-			GameManager.instance.CompleteObjective(keyName);
-		}
+		useCount++;
+		UseSwitch(DefaultSwitch, player);
+	}
 
-		if (animation != null)
+	public virtual void UseSwitch(SwitchData sw, PlayerPawn player)
+	{
+		if (sw != null)
 		{
-			animation.Play();
+			player.RecieveNotification (sw.OnUseMessage);
+			NGUITools.PlaySound (sw.OnUseSound);
+			if (!string.IsNullOrEmpty (sw.keyName))
+			{
+				GameManager.instance.CompleteObjective(sw.keyName);
+			}
+			
+			if (animation != null && !string.IsNullOrEmpty(sw.clipName))
+			{
+				animation.Play(sw.clipName);
+			}
 		}
 	}
 }

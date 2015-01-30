@@ -12,6 +12,15 @@ public class Objective : MonoBehaviour, DunGen.IKeyLock {
 
 	public ObjectiveInfo[] Objectives;
 
+	void Start()
+	{
+		foreach (ObjectiveInfo o in Objectives) 
+		{
+			GameManager.instance.RegisterObjective(o);
+		}
+
+	}
+
 	#region IKeyLock implementation
 	public void OnKeyAssigned (DunGen.Key key, DunGen.KeyManager manager)
 	{
@@ -21,12 +30,9 @@ public class Objective : MonoBehaviour, DunGen.IKeyLock {
 		{
 			if (o.keyName == key.Name)
 			{
-				o.Prop.SetActive(true);
-				GameManager.instance.RegisterObjective(o);
-				InteractableObject io = o.Prop.GetComponentInChildren<InteractableObject>();
-				if (io != null)
+				if (o.Prop != null)
 				{
-					io.keyName = o.keyName;
+					o.Prop.SetActive(true);
 				}
 			}
 		}
