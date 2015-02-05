@@ -635,6 +635,11 @@ namespace DunGen
 	                    prop.Process(RandomStream, tile);
 
 	            ProcessGlobalProps();
+
+				List<GameObject> objectsToBatch = new List<GameObject>();
+
+				BatchMeshes();
+
 			}
 
             GenerationStats.SetRoomStatistics(currentDungeon.MainPathTiles.Count, currentDungeon.BranchPathTiles.Count, maxBranchDepth);
@@ -648,6 +653,21 @@ namespace DunGen
             }
 #endif
         }
+
+		protected virtual void BatchMeshes()
+		{
+
+
+			List<GameObject> objectsToBatch = new List<GameObject>();
+
+			foreach (MeshRenderer m in CurrentDungeon.gameObject.GetComponentsInChildren<MeshRenderer>())
+			{
+				objectsToBatch.Add(m.gameObject);
+			}
+			Debug.Log("About to batch " + objectsToBatch.Count + " objects...");
+			StaticBatchingUtility.Combine(objectsToBatch.ToArray(), CurrentDungeon.gameObject);
+
+		}
 
         protected virtual void ProcessGlobalProps()
         {
