@@ -638,7 +638,7 @@ namespace DunGen
 
 				List<GameObject> objectsToBatch = new List<GameObject>();
 
-				BatchMeshes();
+				//BatchMeshes();
 
 			}
 

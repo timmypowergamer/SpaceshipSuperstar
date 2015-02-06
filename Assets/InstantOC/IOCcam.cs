@@ -116,8 +116,11 @@ public class IOCcam : MonoBehaviour {
 				if(iocComp = hit.transform.GetComponent<IOCcomp>()) {
 					iocComp.UnHide(hit);
 				}
-				else if(iocComp = hit.transform.parent.GetComponent<IOCcomp>()){
-					iocComp.UnHide(hit);
+				else if(hit.transform.parent != null)
+				{
+					if(iocComp = NGUITools.FindInParents<IOCcomp>(hit.transform)){
+						iocComp.UnHide(hit);
+					}
 				}
 			}
 		}

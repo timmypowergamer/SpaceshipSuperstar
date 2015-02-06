@@ -3,22 +3,26 @@ using System.Collections;
 
 public class ObjectiveKey : MonoBehaviour, DunGen.IKeySpawnable {
 
-	public Objective.ObjectiveInfo[] Objectives;
+	[System.Serializable]
+	public class KeyInfo
+	{
+		public string keyName;
+		public GameObject KeyPrefab;
+		public GameObject[] SpawnPoints;
+	}
+
+	public KeyInfo[] Keys;
 
 	#region IKeySpawnable implementation
 
 	public void SpawnKey (DunGen.Key key, DunGen.KeyManager manager)
 	{
-		foreach (Objective.ObjectiveInfo o in Objectives) 
+		foreach (KeyInfo k in Keys) 
 		{
-			if (o.keyName == key.Name)
+			if (k.keyName == key.Name)
 			{
-				o.Prop.SetActive(true);
-				GrabableObject go = o.Prop.GetComponentInChildren<GrabableObject>();
-				if (go != null)
-				{
-					go.keyName = o.keyName;
-				}
+				GameObject spawnPoint = k.SpawnPoints[Random.Range(0,k.SpawnPoints.Length)];
+				Instantiate(k.KeyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
 			}
 		}
 	}
